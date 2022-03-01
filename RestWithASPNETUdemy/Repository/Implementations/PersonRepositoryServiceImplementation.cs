@@ -7,13 +7,13 @@ using System.Threading;
 
 namespace RestWithASPNETUdemy.Repository.Implementations
 {
-    public class PersonRepositoryServiceImplementation : IPersonRepository
+    public class PersonRepositoryImplementation : IPersonRepository
     {
 
        
         private MySQLContext _context;
 
-       public PersonRepositoryServiceImplementation(MySQLContext context)
+       public PersonRepositoryImplementation(MySQLContext context)
         {
             _context = context;
         }

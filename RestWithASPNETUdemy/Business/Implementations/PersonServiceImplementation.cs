@@ -42,53 +42,16 @@ namespace RestWithASPNETUdemy.Business.Implementations
         //Method responsible for updating a person for updating one person
         public Person Update(Person person)
         {
-            //We check if the person exists in the database
-            //If it doesn't exist we return an empty person instace
-            if (!Exists(person.Id)) return new Person();
-
-            //Get the current status of the record in the database
-            var result = _repository.Persons.SingleOrDefault(p => p.Id.Equals(person.Id));
-            if(result != null)
-            {
-                try
-                {
-                    // set changes and save
-                    _repository.Entry(result).CurrentValues.SetValues(person);
-                    _repository.SaveChanges();
-                }
-                catch (Exception)
-                {
-                    throw;
-                }
-
-            }
-          
-            return person;
+           return _repository.Update(person);
         }
 
         //Method responsible for deleting a person from an ID
         public void Delete(long id)
         {
-            var result = _repository.Persons.SingleOrDefault(p => p.Id.Equals(id));
-            if(result != null)
-            {
-                try
-                {
-                    _repository.Persons.Remove(result);
-                    _repository.SaveChanges();
-                }
-                catch (Exception)
-                {
-                    throw;
-                }
-            }
+            _repository.Delete(id);
 
         }
 
-        private bool Exists(long id)
-        {
-            return _repository.Persons.Any(p => p.Id.Equals(id));
-        }
     }
 }
 
