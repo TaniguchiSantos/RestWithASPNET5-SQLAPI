@@ -1,0 +1,84 @@
+System.Globalization.NumberStyles.Any
+indica que iremos aceitar qualquer número como entrada
+
+System.Globalization.NumberFormatInfo.InvariantInfo
+diz que a nossa aplicação irá se comportar 
+exatamente da mesma maneira em diferentes países
+
+Essas propriedades servem pra definir como a 
+nossa aplicação irá se confortar em diferentes países.  
+Nós podemos usar essas propriedades pra que nossa aplicação 
+se comporte de uma forma específica de país para país ou cultura. 
+
+Controller
+É o cara que vai tornar possível a comunicação entre o client REST
+e a nossa aplicação é ele que vai prover JSON ao clients. Ele é a 
+"porta de entrada" para nossa aplicação. Todas as requisições passam
+por controllers e de acordo com o verdo e com os parâmetros ele 
+identifica os parâmetros e direciona a requisição a um método.
+Ele também pode fazer pequenas validações e redirecionar para 
+o service ou business que vai validar as regras de negócios e 
+processar dados
+
+Startup
+Ele é usado para definirmos diversas configurações das 
+nossas aplicações dentre elas as injeções de dependência
+
+Interface
+São usadas para desacoplar as nossas implementações.
+Define métodos que a implementação deve ter. Nelas só
+temos as definições de entrada ex: Int numeroUm, o retor-
+no por exemplo Double mas nenhuma implementação. 
+
+Implementação
+A implemen-
+tação é feita em uma outra classe e a interface age como um
+contrato garantindo que a implementação atende ao especificado na
+interface
+
+Dependência
+Quando instaciamos objetos a partir delas(classes) dentro de outras classes
+automaticamente pode ser considerado uma depedência
+
+Acomplamento
+Quando uma classe depende de outra para funcionar
+
+Injeção de Depedência
+é um design pattern que faz uma classe ser independente de suas
+depedências
+
+Mock
+É uma estrutrura de código normalmente temporária que sustenta
+o desenvolvimento do código até que outros componentes estejam 
+prontos
+
+Migrations
+É a definição que se dá ao gerenciamento de mudanças
+incrementais e reversíveis na estrutura do banco de 
+dados
+
+Vantagens:
+fácil identificar o estado atual do banco de dados
+manipulação do banco de dados simplificada e
+estruturada
+
+Desvantagens:
+muitos arquivos para versionar
+algumas ferramentas não proveem abstração do SGBD
+
+Seeder/dataset
+Como o próprio nome diz, um seeder é um semeador.
+Nesse contexto específico serve para alimentar a base de dados com dados
+
+evolve
+evolve é uma ferramenta que permite executar migrations
+ele é baseado em outra ferramenta open source chamado flay away
+criando scrips sql seguindo um padrão específico e ele vai aplicar
+as migrations
+
+pasta migrations
+são alterações na estrutura do banco
+
+pasta dataset
+são carga de dados na base
+
