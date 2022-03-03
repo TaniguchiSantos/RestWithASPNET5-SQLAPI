@@ -8,41 +8,40 @@ using System.Threading;
 
 namespace RestWithASPNETUdemy.Business.Implementations
 {
-    public class PersonBusinessImplementation : IPersonBusiness
+    public class BookBusinessImplementation : IBookBusiness
     {
 
-       
-        private IPersonRepository _repository;
+        private IRepository<Book> _repository;
 
-       public PersonBusinessImplementation(IPersonRepository repository)
+       public BookBusinessImplementation(IRepository<Book> repository)
         {
             _repository = repository;
         }
 
 
         //Method responsible for returning all people
-        public List<Person> FindAll()
+        public List<Book> FindAll()
         {
             return _repository.FindAll();
         }
 
 
         //Method responsible for returning one person by ID
-        public Person FindByID(long id)
+        public Book FindByID(long id)
         {
             return _repository.FindByID(id);
         }
         
         //Methoh responsible to create one person
-        public Person Create(Person person)
+        public Book Create(Book book)
         {
-           return _repository.Create(person);
+           return _repository.Create(book);
         }
         
         //Method responsible for updating a person for updating one person
-        public Person Update(Person person)
+        public Book Update(Book book)
         {
-           return _repository.Update(person);
+           return _repository.Update(book);
         }
 
         //Method responsible for deleting a person from an ID
@@ -51,7 +50,6 @@ namespace RestWithASPNETUdemy.Business.Implementations
             _repository.Delete(id);
 
         }
-
     }
 }
 

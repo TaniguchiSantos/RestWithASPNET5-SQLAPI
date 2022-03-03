@@ -19,28 +19,6 @@ namespace RestWithASPNETUdemy.Repository.Generic
             dataset = _context.Set<T>();
         }
 
-        public T Create(T item)
-        {
-
-            dataset.Add(item);
-            _context.SaveChanges();
-
-            return item;    
-        }
-
-        public void Delete(long id)
-        {
-            var result = dataset.SingleOrDefault(p => p.Id.Equals(id));
-
-            dataset.Remove(result);
-            _context.SaveChanges();
-        }
-
-        public bool Exists(long id)
-        {
-            throw new System.NotImplementedException();
-        }
-
         public List<T> FindAll()
         {
             return dataset.ToList();
@@ -49,6 +27,15 @@ namespace RestWithASPNETUdemy.Repository.Generic
         public T FindByID(long id)
         {
             return dataset.SingleOrDefault(p => p.Id.Equals(id));
+        }
+
+        public T Create(T item)
+        {
+
+            dataset.Add(item);
+            _context.SaveChanges();
+
+            return item;    
         }
 
         public T Update(T item)
@@ -64,10 +51,23 @@ namespace RestWithASPNETUdemy.Repository.Generic
             {
                 // set changes and save
                 _context.Entry(result).CurrentValues.SetValues(item);
-                _context.SaveChanges();              
+                _context.SaveChanges();
             }
 
             return item;
+        }
+
+        public void Delete(long id)
+        {
+            var result = dataset.SingleOrDefault(p => p.Id.Equals(id));
+
+            dataset.Remove(result);
+            _context.SaveChanges();
+        }
+
+        public bool Exists(long id)
+        {
+            return dataset.Any(p => p.Id.Equals(id));
         }
     }
 }
