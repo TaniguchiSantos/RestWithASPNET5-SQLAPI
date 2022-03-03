@@ -51,7 +51,7 @@ namespace RestWithASPNETUdemy.Controllers
         //Maps PUT requests to https://localhost:{port}/api/book/
         //[FromBody] consumes the JSON object sent in the request body
         [HttpPost]
-        public IActionResult Post([FromBody] Book book)
+        public IActionResult Post([FromBody] BookVO book)
         {
 
             if (book == null) return BadRequest();
@@ -61,7 +61,7 @@ namespace RestWithASPNETUdemy.Controllers
         //Maps PUT requests to https://localhost:{port}/api/book/
         //[FromBody] consumes the JSON object sent in the request body
         [HttpPut]
-        public IActionResult Put([FromBody] Book book)
+        public IActionResult Put([FromBody] BookVO book)
         {
 
             if (book == null) return BadRequest();

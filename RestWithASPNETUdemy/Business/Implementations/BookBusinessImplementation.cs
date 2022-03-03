@@ -1,4 +1,5 @@
-﻿using RestWithASPNETUdemy.Model;
+﻿using RestWithASPNETUdemy.Data.Converter.Implementation;
+using RestWithASPNETUdemy.Model;
 using RestWithASPNETUdemy.Model.Context;
 using RestWithASPNETUdemy.Repository;
 using System;
@@ -13,35 +14,41 @@ namespace RestWithASPNETUdemy.Business.Implementations
 
         private IRepository<Book> _repository;
 
-       public BookBusinessImplementation(IRepository<Book> repository)
+        private readonly BookConverter _converter;
+
+        public BookBusinessImplementation(IRepository<Book> repository)
         {
             _repository = repository;
+            _converter = new BookConverter();
         }
 
-
         //Method responsible for returning all people
-        public List<Book> FindAll()
+        public List<BookVO> FindAll()
         {
-            return _repository.FindAll();
+            return _converter.Parse(_repository.FindAll());
         }
 
 
         //Method responsible for returning one person by ID
-        public Book FindByID(long id)
+        public BookVO FindByID(long id)
         {
-            return _repository.FindByID(id);
+            return _converter.Parse(_repository.FindByID(id));
         }
         
         //Methoh responsible to create one person
-        public Book Create(Book book)
+        public BookVO Create(BookVO book)
         {
-           return _repository.Create(book);
+            var personEntity = _converter.Parse(book);
+            personEntity = _repository.Create(personEntity);
+            return _converter.Parse(personEntity);
         }
         
         //Method responsible for updating a person for updating one person
-        public Book Update(Book book)
+        public BookVO Update(BookVO book)
         {
-           return _repository.Update(book);
+            var personEntity = _converter.Parse(book);
+            personEntity = _repository.Update(personEntity);
+            return _converter.Parse(personEntity);
         }
 
         //Method responsible for deleting a person from an ID

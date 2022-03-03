@@ -82,3 +82,6 @@ são alterações na estrutura do banco
 pasta dataset
 são carga de dados na base
 
+Interface
+Diz quais métodos/propriedades algo deve possuir
+

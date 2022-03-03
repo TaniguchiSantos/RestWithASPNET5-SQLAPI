@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using RestWithASPNETUdemy.Business;
+using RestWithASPNETUdemy.Data.VO;
 using RestWithASPNETUdemy.Model;
 using System;
 using System.Collections.Generic;
@@ -31,7 +32,7 @@ namespace RestWithASPNETUdemy.Controllers
         //Maps GET requests to https://localhost:{port}/api/person
         //Get no parameters for FindAll -> Search All
         [HttpGet]
-        public IActionResult Get(string firstNumber, string secondNumber)
+        public IActionResult Get()
         {
             return Ok(_personBusiness.FindAll());
         }
@@ -50,7 +51,7 @@ namespace RestWithASPNETUdemy.Controllers
         //Maps PUT requests to https://localhost:{port}/api/person/
         //[FromBody] consumes the JSON object sent in the request body
         [HttpPost]
-        public IActionResult Post([FromBody] Person person)
+        public IActionResult Post([FromBody] PersonVO person)
         {
 
             if (person == null) return BadRequest();
@@ -60,7 +61,7 @@ namespace RestWithASPNETUdemy.Controllers
         //Maps PUT requests to https://localhost:{port}/api/person/
         //[FromBody] consumes the JSON object sent in the request body
         [HttpPut]
-        public IActionResult Put([FromBody] Person person)
+        public IActionResult Put([FromBody] PersonVO person)
         {
 
             if (person == null) return BadRequest();
