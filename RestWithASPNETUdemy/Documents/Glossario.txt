@@ -106,3 +106,6 @@ Custom Serialization
 atributos no json e também 
 esconde los
 
+Content Negociation
+Prover mais de um formato 
+de serialização 
