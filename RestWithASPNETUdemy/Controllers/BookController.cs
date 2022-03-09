@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using RestWithASPNETUdemy.Business;
+using RestWithASPNETUdemy.Hypermedia.Filters;
 using RestWithASPNETUdemy.Model;
 using System;
 using System.Collections.Generic;
@@ -32,6 +33,7 @@ namespace RestWithASPNETUdemy.Controllers
         //Maps GET requests to https://localhost:{port}/api/book
         //Get no parameters for FindAll -> Search All
         [HttpGet]
+        [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Get()
         {
             return Ok(_bookBusiness.FindAll());
@@ -41,6 +43,7 @@ namespace RestWithASPNETUdemy.Controllers
         // receiving an ID as in the Request Path
         //Get with parameters for FindById -> Search by ID
         [HttpGet("{id}")]
+        [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Get(long id)
         {
             var book = _bookBusiness.FindByID(id);
@@ -51,6 +54,7 @@ namespace RestWithASPNETUdemy.Controllers
         //Maps PUT requests to https://localhost:{port}/api/book/
         //[FromBody] consumes the JSON object sent in the request body
         [HttpPost]
+        [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Post([FromBody] BookVO book)
         {
 
@@ -61,6 +65,7 @@ namespace RestWithASPNETUdemy.Controllers
         //Maps PUT requests to https://localhost:{port}/api/book/
         //[FromBody] consumes the JSON object sent in the request body
         [HttpPut]
+        [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Put([FromBody] BookVO book)
         {
 
@@ -71,6 +76,7 @@ namespace RestWithASPNETUdemy.Controllers
         //Maps DELETE requests to https://localhost:{port}/api/book/{id}
         //receiving an ID as in the Request Path
         [HttpDelete("{id}")]
+        [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Delete(long id)
         {
             _bookBusiness.Delete(id);

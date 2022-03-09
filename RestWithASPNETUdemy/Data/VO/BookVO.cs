@@ -1,11 +1,14 @@
-﻿using RestWithASPNETUdemy.Model.Base;
+﻿using RestWithASPNETUdemy.Hypermedia;
+using RestWithASPNETUdemy.Hypermedia.Abstract;
+using RestWithASPNETUdemy.Model.Base;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace RestWithASPNETUdemy.Model
+namespace RestWithASPNETUdemy.Model  
 {
    
-    public class BookVO 
+    public class BookVO : ISupportstHyperMedia
     {
         public long Id { get; set; }
 
@@ -16,7 +19,7 @@ namespace RestWithASPNETUdemy.Model
         public decimal Price { get; set; }
 
         public DateTime LaunchDate { get; set; }
-        
+        public List<HyperMediaLink> Links { get; set; } = new List<HyperMediaLink>();
     }
     
 }

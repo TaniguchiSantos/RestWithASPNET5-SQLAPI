@@ -109,3 +109,18 @@ esconde los
 Content Negociation
 Prover mais de um formato 
 de serialização 
+
+Padrão de Projetos VO(Value Object)
+Serve para garantir que a 
+evolução da API não irá quebrar
+os clientes que a consomem.
+Elas são fundamentais no 
+versionamento.
+
+Classe de contexto
+É nela que definimos os 
+datasets e é ela que a 
+responsável por se conectar
+com o nosso banco de dados
+e executar as operações
+CRUD

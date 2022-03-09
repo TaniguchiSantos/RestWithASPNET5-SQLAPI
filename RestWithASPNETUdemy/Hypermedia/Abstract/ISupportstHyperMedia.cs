@@ -2,7 +2,7 @@
 
 namespace RestWithASPNETUdemy.Hypermedia.Abstract
 {
-    public interface ISupportHyperMedia
+    public interface ISupportstHyperMedia
     {
         List<HyperMediaLink> Links { get; set; }
     }
