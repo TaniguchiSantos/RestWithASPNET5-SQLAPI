@@ -48,3 +48,10 @@ endpoints.MapControllerRoute("DefaultApi", "{controller=values}/{id?}");
 para:
 
 endpoints.MapControllerRoute("DefaultApi", "{controller=values}/v{version=apiVersion}/{id?}");
+
+
+CORS
+No Startup em Configure o Cors
+tem que estar após UseHttpsRedirection
+e Use Routing e antes de UseEndpoints
+se não não funciona corretamente
