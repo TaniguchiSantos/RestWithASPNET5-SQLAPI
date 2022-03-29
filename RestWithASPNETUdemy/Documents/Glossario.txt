@@ -136,4 +136,18 @@ Payload
 São objetos Json que contém 
 as claims
 
+PUT
+Substitui todos os atuais dados
+do recurso de destino pelos dados
+passados na requisição.
+Atualização integral.
+Existe a possibilidade de atualizar
+todo o recurso em apenas uma requisição.
+
 Token JWT
+
+PATCH
+Aplica modificações parciais em um recurso.
+É possível modificar apenas uma parte do 
+recurso.
+Que torna as coisas mais flexíveis

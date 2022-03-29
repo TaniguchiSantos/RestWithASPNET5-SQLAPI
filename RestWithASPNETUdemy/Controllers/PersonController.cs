@@ -78,7 +78,7 @@ namespace RestWithASPNETUdemy.Controllers
         //Maps PUT requests to https://localhost:{port}/api/person/
         //[FromBody] consumes the JSON object sent in the request body
         [HttpPut]
-        [ProducesResponseType((200), Type = typeof(PersonVO))]
+        [ProducesResponseType((200), Type = typeof(PersonVO))]      
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
         [TypeFilter(typeof(HyperMediaFilter))]
@@ -87,6 +87,20 @@ namespace RestWithASPNETUdemy.Controllers
 
             if (person == null) return BadRequest();
             return Ok(_personBusiness.Update(person));
+        }
+
+        //Maps PUT requests to https://localhost:{port}/api/person/
+        //[FromBody] consumes the JSON object sent in the request body
+        [HttpPatch("{id}")]
+        [ProducesResponseType((200), Type = typeof(PersonVO))]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
+        [TypeFilter(typeof(HyperMediaFilter))]
+        public IActionResult Patch(long id)
+        {
+            var person = _personBusiness.Disable(id);
+            return Ok(person);
         }
 
         //Maps DELETE requests to https://localhost:{port}/api/person/{id}
