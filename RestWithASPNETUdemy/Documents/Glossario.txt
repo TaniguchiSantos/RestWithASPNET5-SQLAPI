@@ -124,3 +124,16 @@ responsável por se conectar
 com o nosso banco de dados
 e executar as operações
 CRUD
+
+Cors
+Permite o acesso remoto a sua API
+
+Claims
+Nessa parte que trabalho com carga de dados
+enviados
+
+Payload
+São objetos Json que contém 
+as claims
+
+Token JWT
