@@ -41,7 +41,7 @@ namespace RestWithASPNETUdemy.Business.Implementations
             if (!string.IsNullOrEmpty(name)) query = query + $" and p.first_name like '%{name}%' ";
             query += $" order by p.first_name {sort} limit {size} offset {offset}";
 
-            string countQuery = @"select count(*) from Person p where 1 = 1 ";
+            string countQuery = @"select count(*) from person p where 1 = 1 ";
             if (!string.IsNullOrEmpty(name)) countQuery = countQuery + $" and p.first_name like '%{name}%' ";
           
             var persons = _repository.FindWithPagedSearch(query);
