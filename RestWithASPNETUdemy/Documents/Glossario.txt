@@ -151,3 +151,31 @@ Aplica modificações parciais em um recurso.
 É possível modificar apenas uma parte do 
 recurso.
 Que torna as coisas mais flexíveis
+
+Docker
+é uma plataforma de software que simplifica o processo
+de construção, execução, gerenciamento e distribuição
+de aplicativos
+Não há mais problemas de depência ou compilação
+Open Source
+
+Container
+São uma forma de virtualização
+a nível de sistema opereracional
+que permite rodar multiplos sistemas
+isolados em um único sistema
+operacional real
+Permite Flexibilidade
+perfomance e escabilidade
+A grande vantagem de um container é encapsular
+todas as dependências necessárias para
+rodá-lo
+
+Kubernetes
+Criado pelo Google é um dos projetos
+open source mais populares do mundo
+É ele quem gerencia os containers 
+em execução e por isso ele é chamado
+de Orquestrador de Containers.
+Através dele  podemos definir o 
+estado de um sistema completo

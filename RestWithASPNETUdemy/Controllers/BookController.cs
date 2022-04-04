@@ -34,15 +34,19 @@ namespace RestWithASPNETUdemy.Controllers
 
         //Maps GET requests to https://localhost:{port}/api/book
         //Get no parameters for FindAll -> Search All
-        [HttpGet]
-        [ProducesResponseType((200), Type = typeof(List<BookVO>))]
+        [HttpGet("{sortDirection}/{pageSize}/{page}")]
+        [ProducesResponseType((200), Type = typeof(List<Book>))]
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
         [TypeFilter(typeof(HyperMediaFilter))]
-        public IActionResult Get()
+        public IActionResult Get(
+            [FromQuery] string title,
+            string sortDirection,
+            int pageSize,
+            int page)
         {
-            return Ok(_bookBusiness.FindAll());
+            return Ok(_bookBusiness.FindWithPagedSearch(title, sortDirection, pageSize, page));
         }
 
         // Maps GET requests to https://localhost:{port}/api/book/{id}
@@ -59,6 +63,19 @@ namespace RestWithASPNETUdemy.Controllers
             var book = _bookBusiness.FindByID(id);
             if (book == null) return NotFound();
             return Ok(book);
+        }
+
+        [HttpGet("findPersonByTitle")]
+        [ProducesResponseType((200), Type = typeof(BookVO))]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
+        [TypeFilter(typeof(HyperMediaFilter))]
+        public IActionResult Get([FromQuery] string title)
+        {
+            var person = _bookBusiness.FindByTitle(title);
+            if (person == null) return NotFound();
+            return Ok(person);
         }
 
         //Maps PUT requests to https://localhost:{port}/api/book/

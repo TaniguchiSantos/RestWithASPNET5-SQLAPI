@@ -13,8 +13,6 @@ namespace RestWithASPNETUdemy.Business
 
         List<PersonVO> FindByName(string firstName, string lastName);
 
-        List<PersonVO> FindAll();
-
         PagedSearchVO<PersonVO> FindWithPagedSearch(
             string name, string sortDirection, int pageSize, int page);
 

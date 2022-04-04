@@ -25,10 +25,6 @@ namespace RestWithASPNETUdemy.Business.Implementations
         }
         
         //Method responsible for returning all people
-        public List<PersonVO> FindAll()
-        {
-            return _converter.Parse(_repository.FindAll());
-        }
 
         public PagedSearchVO<PersonVO> FindWithPagedSearch(
             string name, string sortDirection, int pageSize, int page)

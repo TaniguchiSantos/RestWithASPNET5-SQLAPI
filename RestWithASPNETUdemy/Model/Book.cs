@@ -21,7 +21,10 @@ namespace RestWithASPNETUdemy.Model
 
         [Column("launch_date")]
         public DateTime LaunchDate { get; set; }
-        
+
+        [Column("enabled")]
+        public bool Enabled { get; set; }
+
     }
     
 }
