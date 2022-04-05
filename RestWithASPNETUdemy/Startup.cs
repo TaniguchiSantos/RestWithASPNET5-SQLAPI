@@ -132,13 +132,13 @@ namespace RestWithASPNETUdemy
                     new OpenApiInfo
                     {
 
-                        Title = "REST API's From 0 to Azure with ASP.NET Core 5 and Docker",
+                        Title = "REST API's with ASP.NET Core 5 and Docker",
                         Version = "v1",
-                        Description = "API RESTful develped in course 'REST API's From 0 to Azure with ASP.NET Core 5 and Docker",
+                        Description = ".NET Project that saves and retrieves a person and book information in SQL Database",
                         Contact = new OpenApiContact
                         {
-                            Name = "Leandro Costa",
-                            Url = new Uri("https://github.com/leandrocgsi")
+                            Name = "Taniguchi Santos",
+                            Url = new Uri("https://github.com/TaniguchiSantos")
                         }
                     });
             });
